@@ -32,6 +32,8 @@ Restoring from a backup creates a ***NEW*** RDS instance with a new DNS endpoint
     * Automatic failover
     * For ***disaster recovery*** only, not performance
 
+![RDS Multiple Availability Zones](images/rds-multi-az.png)
+
 * Read Replicas
     * ***READ-ONLY*** copy using asynchronous replication
     * Must have automatic backups enabled
@@ -40,5 +42,7 @@ Restoring from a backup creates a ***NEW*** RDS instance with a new DNS endpoint
     * Multi-AZ/Region replicas possible
     * Can be promoted to own Database
         * **Note** This will break replication
+
+![Read Replicas](images/read-replica.png)
 
 *All read replicas have their own private endpoints*

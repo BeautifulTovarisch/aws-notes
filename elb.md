@@ -18,6 +18,8 @@ Distribute load/traffic evenly between instances.
 
 A 504 Gateway error means the actual application is failing, not the load balancer.
 
+![X-Forwarded-For Header](images/elb-x-forwarded-for.png)
+
 If you need the IPv4 address of the end user, you can use the value of the X-Forwarded-For header.
 
 -------------------------------------------------------------------------------
