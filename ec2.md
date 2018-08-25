@@ -31,6 +31,8 @@ tasks.
 
 Below is a mnemonic device to remember the intended use for each instance type. Instances have a letter and number ( e.g t2 ) that represents its classification and generation respectively. **Note:** The letters don't actually abbreviate the right-hand side of the mnemonic.
 
+![EC2 Instance Types](images/ec2-instance-types.png)
+
 F - FPGA ( Field Programmable Gate Array )
 
 I - IOPS ( Input Output Per Second )
