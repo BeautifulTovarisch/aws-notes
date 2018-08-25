@@ -30,4 +30,4 @@ While Redis and Memcached may appear to be very similar, their features require 
 
 ## Exam Tips ##
 
-Elasticache is good for read-heavy applications. Exam may present scenario of poorly performing application and ask for the correct service. If the application is failing to due OLAP ( business analytics and processing ), AWS Redshift is a better answer.
+Elasticache is good for read-heavy applications. Exam may present scenario of poorly performing application and ask for the correct service. If the application is failing due to OLAP ( business analytics and processing ), AWS Redshift is a better answer.
