@@ -17,3 +17,8 @@ Access Control for buckets:
 * S3 Access logs
     - Logs all actions on S3 bucket
     - Can be written into another S3 bucket
+* Encryption
+    - AES-256
+    - AWS-KMS
+
+*Can encrypt at the object level*
