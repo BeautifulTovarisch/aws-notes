@@ -26,7 +26,7 @@ While Redis and Memcached may appear to be very similar, their features require 
 |Advanced Datatypes|Simple solution|
 |Sorting & Ranking|Large cache nodes|
 |Persistence|Horizontal scaling|
-|Multi-AZ|multi-thread|
+|Multi-AZ|Multi-threaded capability|
 
 ## Exam Tips ##
 
