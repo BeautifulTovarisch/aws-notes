@@ -8,6 +8,12 @@ Roles = ***Temporary*** keys
 
 Always apply the Principle of Least Privilege[^1]. If you've already configured an EC2 instance with keys, you can run `rm ~/.aws/credentials` and `rm ~/.aws/config` on the machine and proceed with Roles.
 
+## Root Encryption ##
+
+Offers at-rest encryption for the root volume ( where the OS lives ). You can encrypt the root volume by taking a snapshot, creating a copy, and finally making a "golden image" AMI ( Amazon Machine Image ) from the copy.
+
+Other volumes ( non root ) can be encrypted with the console, CLI, or API.
+
 ## Exam Tips ##
 
 * Roles allow you to not use Access Key IDs and Secret Access Keys
