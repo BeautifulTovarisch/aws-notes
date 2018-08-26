@@ -59,6 +59,23 @@ Example:
 ...
 ```
 
+## Indexes ##
+
+Allows for faster queries on particular columns. Queries run on indexed columns rather than entire dataset.
+
+DynamoDB has two types of **Secondary Indexes**:
+
+- Local Secondary Index
+    - Can only be created on table creation
+    - Cannot be added, removed, or modified
+    - Same **partition** key as original table
+    - Different **sort** key
+    - Queries based on this sort key are much faster
+
+- Global Secondary Index
+    - More flexible, create and modify later
+    - Can choose different partition and sort keys
+
 ## Exam Tips ##
 
 - Low latency NoSQL Database
@@ -68,3 +85,11 @@ Example:
 - Primary key types
 - Two consistency models
 - `dynamodb:LeadingKeys` for fine-grained control
+- Indexes = faster queries on specific columns
+- Can be thought of as SQL *views*
+
+|Local Secondary Index|Global Secondary Index|
+|---------------------|----------------------|
+|Must be created on table create|Can create anytime|
+|Same Partition Key|Different partition key as table|
+|Different Sort Key|Different Sort Key|
