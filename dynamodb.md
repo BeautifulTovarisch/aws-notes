@@ -76,6 +76,32 @@ DynamoDB has two types of **Secondary Indexes**:
     - More flexible, create and modify later
     - Can choose different partition and sort keys
 
+## Scan vs. Query ##
+
+Different methods for retrieving data from DynamoDB table.
+
+### Query ###
+
+Returns items based on a Primary ( Partition ) Key and distinct value. Can use an optionally provided sort key to refine results. Uses the *ProjectionExpression* to specify returned attributes.
+
+- Results **always** sorted by sort key
+- Numeric and ASCII code values sorted ascending by default
+- Can reverse order by specifying *ScanIndexForward* in query
+- Queries are ***Eventually Consistent*** by default
+- Can specify if Strongly Consistent behavior is desired
+
+### Scan ###
+
+Examines **every** item in table. By default returns all items but can be specified with *ProjectionExpression* as above. Scans allow arbitrary filters on attributes.
+
+- Scans ***are not searches***
+- Scans retrieve the entire table then filter
+- Scans on large tables can use up the throughput allocated in a single operation
+- Can be configured to scan in parallel
+    - Avoid if table is undergoing heavy use
+
+The impact of Queries and Scans can be mitigated by reducing the *page size*. This will allow a larger number of smaller operations.
+
 ## Exam Tips ##
 
 - Low latency NoSQL Database
@@ -93,3 +119,8 @@ DynamoDB has two types of **Secondary Indexes**:
 |Must be created on table create|Can create anytime|
 |Same Partition Key|Different partition key as table|
 |Different Sort Key|Different Sort Key|
+
+- Queries are more efficient than scans
+- Scans take longer as the table grows
+- Be careful with throughput when running scans ( reduce page size )
+- Avoid using scans when possible ( use Query, Get, BatchGetItem )
