@@ -102,6 +102,44 @@ Examines **every** item in table. By default returns all items but can be specif
 
 The impact of Queries and Scans can be mitigated by reducing the *page size*. This will allow a larger number of smaller operations.
 
+## Provisioned Throughput ##
+
+Defines capacity and performance requirements. Measured in Capacity Units. Read and write capacity units:
+
+- 1RCU ( read capacity unit )
+    - **1 Strongly consistent** 4 KB read per second
+    - **2 Eventually consistent** 4 KB read per second
+- 1WCU ( write capacity unit ) = 1KB Write per second
+
+### Example ###
+
+Table with 5RCUs and 5WCUs provisioned
+
+- 20 KB/s strongly consistent reads ( 5RCU * 4KB/s = 20 )
+or
+- 40 KB/s eventual consistent reads ( ( 5 * 2 )RCU * 4KB/s = 40 )
+- 5 KB/s writes ( 5WCU * 1KB/s )
+
+More capacity units = more cost
+
+### Example ###
+
+Application needs 80 items per second, each item is 3KB. **Strongly Consistent** reads are required.
+
+- RCUs required = item size / 4KB
+    - 3KB / 4KB = 0.75KB per item
+    - Round up to 1RCU
+    - 1RCU[^1] x 80 items = 80RCU
+
+### Example ###
+
+100 items per second. Each item is 512 bytes.
+
+- WCUs required = item size / 1KB
+    - 512b / 1KB = 0.5 WCU per item
+    - Round up to 1WCU
+    - 1WCU x 100 items = 100WCU
+
 ## Exam Tips ##
 
 - Low latency NoSQL Database
@@ -124,3 +162,6 @@ The impact of Queries and Scans can be mitigated by reducing the *page size*. Th
 - Scans take longer as the table grows
 - Be careful with throughput when running scans ( reduce page size )
 - Avoid using scans when possible ( use Query, Get, BatchGetItem )
+- RCU and WCU calculations
+
+[^1]: Use 2RCU for eventually consistent reads ( 80 / 2RCUs )
